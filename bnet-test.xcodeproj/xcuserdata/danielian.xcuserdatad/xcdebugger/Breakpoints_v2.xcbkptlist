@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3FDA269F-C62B-4769-B1B2-CE4CE9D807CE"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85858157-48F4-4521-8FC2-CAF2673BEE1E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bnet-test/Controllers/EntriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "didUpdateData(_:models:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "85858157-48F4-4521-8FC2-CAF2673BEE1E - 2f958c0899e58bc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bnet_test.EntriesViewController.didUpdateData(_: bnet_test.NetworkManager, models: Swift.Array&lt;bnet_test.DataModel&gt;) -&gt; ()"
+                  moduleName = "bnet-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielian/Desktop/CODING/My%20projects/bnet-test/bnet-test/Controllers/EntriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "158">
+               </Location>
+               <Location
+                  uuid = "85858157-48F4-4521-8FC2-CAF2673BEE1E - f2449175d831d251"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in bnet_test.EntriesViewController.didUpdateData(_: bnet_test.NetworkManager, models: Swift.Array&lt;bnet_test.DataModel&gt;) -&gt; ()"
+                  moduleName = "bnet-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielian/Desktop/CODING/My%20projects/bnet-test/bnet-test/Controllers/EntriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
