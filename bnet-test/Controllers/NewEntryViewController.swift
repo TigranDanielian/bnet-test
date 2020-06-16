@@ -11,24 +11,13 @@ import UIKit
 class NewEntryViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
     
-    var NM = NetworkManager()
-     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
-        
-
-    }
-    
-    @IBAction func saveEntry(_ sender: UIButton) {
-        if textView.text!.isEmpty {
-         let alert = UIAlertController(title: "Empty entry", message: "Please fill the entry!", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-        }
+        saveButton.isEnabled = false
     }
     
     @IBAction func cancelEntry(_ sender: UIButton) {
@@ -36,6 +25,13 @@ class NewEntryViewController: UIViewController, UITextViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text! == "" {
+         saveButton.isEnabled = false
+        } else {
+         saveButton.isEnabled = true
+        }
+    }
     
        /*
     // MARK: - Navigation
