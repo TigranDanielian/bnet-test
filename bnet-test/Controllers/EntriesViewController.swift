@@ -32,9 +32,9 @@ class EntriesViewController: UITableViewController {
         }
            alert.addAction(action)
         if NetworkManager.isConnectedToNetwork() {
-            print("connected")
             NM.newSession()
             NM.getEntries()
+             tableView.reloadData()
         } else {
             present(alert, animated: true)
         }
@@ -51,17 +51,12 @@ class EntriesViewController: UITableViewController {
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
         if let svc = segue.source as? NewEntryViewController {
             guard let t = svc.textView.text else {return}
-            if !t.isEmpty {
              DispatchQueue.main.async {
-                self.NM.addEntry(body: svc.textView.text)
+                self.NM.addEntry(body: t)
                 self.NM.getEntries()
+                self.tableView.reloadData()
             }
-            } else {
-                let alert = UIAlertController(title: "Empty entry", message: "Please fill the entry!", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action)
-                svc.present(alert, animated: true, completion: nil)
-            }
+            
     }
 
     }
@@ -82,9 +77,7 @@ class EntriesViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        
-        
-        
+
         if !modelsArray.isEmpty {
         let da = Date(timeIntervalSince1970: TimeInterval(modelsArray[indexPath.row].dateAdded!))
         let dm = Date(timeIntervalSince1970: TimeInterval(modelsArray[indexPath.row].dateModified!))
@@ -96,29 +89,30 @@ class EntriesViewController: UITableViewController {
         return cell
     }
     
-}
-
-extension EntriesViewController: NetworkManagerDelegate {
-     func didUpdateData(_: NetworkManager, models: [DataModel]) {
-        
-        DispatchQueue.main.async {
-        self.modelsArray = models
-        print(self.modelsArray[0].entry!)
-        self.tableView.reloadData()
-        }
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? FullEntryViewController else {return}
         if let indexPath = tableView.indexPathForSelectedRow {
             print(indexPath.row)
             guard let t = modelsArray[indexPath.row].entry else {return}
             destinationVC.text = t
-            
-        
         }
     }
+    
+}
+
+extension EntriesViewController: NetworkManagerDelegate {
+     func didUpdateData(_: NetworkManager, models: [DataModel]) {
+        if !models.isEmpty {
+        DispatchQueue.main.async {
+        self.modelsArray = models
+        print(self.modelsArray[0].entry!)
+        self.tableView.reloadData()
+        }
+        }
+        
+    }
+    
+    
     
     
 }

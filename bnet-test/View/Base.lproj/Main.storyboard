@@ -166,7 +166,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <state key="normal" title="Save"/>
                                                         <connections>
-                                                            <action selector="saveEntry:" destination="f6L-A1-PG1" eventType="touchUpInside" id="dAW-xH-E4i"/>
                                                             <segue destination="nuq-qm-cYy" kind="unwind" identifier="UnwindtoEvc" unwindAction="unwindToThisViewControllerWithSegue:" id="P7M-xN-i6h"/>
                                                         </connections>
                                                     </button>
@@ -228,6 +227,7 @@
                         <viewLayoutGuide key="safeArea" id="jdc-dc-gnn"/>
                     </view>
                     <connections>
+                        <outlet property="saveButton" destination="wKh-FZ-08n" id="eEw-Tk-dZZ"/>
                         <outlet property="textView" destination="IkL-dq-ory" id="CLZ-qX-KQz"/>
                     </connections>
                 </viewController>
